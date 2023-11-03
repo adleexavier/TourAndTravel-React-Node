@@ -1,0 +1,44 @@
+.inputwrapper {
+  position: relative;
+}
+
+.inputcontainer {
+  border: 1px solid gray;
+  border-radius: 6px;
+  position: relative;
+  /* width: 200px; */
+  line-height: 6ex;
+  display: flex;
+}
+.inputnopadding {
+  margin: 18px 0px;
+  width: auto;
+  border: none;
+  outline: none;
+}
+.inputaddpadding {
+  margin: 18px 0px 18px 16px;
+  width: auto;
+  border: none;
+  outline: none;
+}
+label {
+  position: absolute;
+  top: -12px;
+  z-index: 1;
+  left: 16px;
+  background-color: white;
+  padding: 0 4px;
+}
+.inputwrapper text {
+  text-align: start;
+  float: left;
+  margin-left: 16px;
+}
+.icon {
+  height: 17.5px;
+  width: 17.5px;
+  margin: auto 15px;
+  display: flex;
+  align-content: center;
+}
