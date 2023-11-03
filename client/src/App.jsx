@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-
-import "./App.css";
 import { store } from "./store/store";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
