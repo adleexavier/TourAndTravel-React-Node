@@ -6,43 +6,68 @@ import ArrowDown from "../assets/icons/ArrowDown";
 import Warning from "../assets/icons/Warning";
 InputField.propTypes = {
   setValue: PropTypes.func,
-  status: PropTypes.oneOf(["active", "inactive", "error", "success"]),
+  status: PropTypes.oneOf(["active", "inactive", "error", "success", ""]),
   type: PropTypes.oneOf(["search", "dropdown", "dropdownsearch", ""]),
+  label: PropTypes.string,
+  subtext: PropTypes.string,
+  placeholder: PropTypes.string,
+  width: PropTypes.string,
 };
-
-export default function InputField({ setValue, status, type }) {
-  console.log(status);
+//set value if the function that has to be passsed as props for setting the value
+export default function InputField({
+  setValue,
+  status,
+  type,
+  label = "Label",
+  subtext = "subtext",
+  placeholder = "placeholder",
+  width = 210,
+}) {
+  const inputwrapper = {
+    position: "relative",
+    width: `${width}px`,
+  };
   return (
-    <div className={classes.inputwrapper}>
-      <label className={`${status}`}>First</label>
+    <div style={inputwrapper}>
+      {label && (
+        <label className={`${classes[status]}  ${classes.noborder}`}>
+          {label}
+        </label>
+      )}
       <div className={`${classes.inputcontainer} ${classes[status]}`}>
         {(type === "search" || type === "dropdownsearch") && (
           <div className={classes.icon}>
-            <SearchIcon height={18} width={18} />
+            <SearchIcon height={18} width={18} status={status} />
           </div>
         )}
-
         <input
           type="text"
           className={`${
             type === "search" && type === "dropdownsearch"
-              ? classes.inputnopadding
-              : classes.inputaddpadding
-          }`}
-          placeholder={"Input"}
+              ? classes.inputaddpadding
+              : classes.inputnopadding
+          } ${status === "inactive" ?? classes.inactive}`}
+          placeholder={placeholder}
         />
-        {(type === "search" || type === "dropdown") && status !== "error" && (
-          <div className={classes.icon}>
-            <ArrowDown height={18} width={18} />
-          </div>
-        )}
+        {(type === "dropdown" || type === "dropdownsearch") &&
+          status !== "error" && (
+            <div className={classes.icon}>
+              <ArrowDown height={18} width={18} status={status} />
+            </div>
+          )}
         {status === "error" && (
           <div className={classes.icon}>
             <Warning />
           </div>
         )}
       </div>
-      <span>Supporting text</span>
+      {subtext && (
+        <span
+          className={`${classes[status]}  ${classes.subtext} ${classes.noborder}`}
+        >
+          {subtext}
+        </span>
+      )}
     </div>
   );
 }

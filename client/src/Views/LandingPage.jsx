@@ -4,7 +4,11 @@ import classes from "./LandingPage.module.css";
 export default function LandingPage() {
   return (
     <div className={classes.test}>
-      <InputField status={"active"} />
+      <InputField
+        status={"active"}
+        placeholder={"your email address"}
+        type={"dropdownsearch"}
+      />
     </div>
   );
 }

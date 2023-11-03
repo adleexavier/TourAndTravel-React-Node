@@ -2,10 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 
 ArrowDown.propTypes = {
-  height: PropTypes.string,
-  width: PropTypes.string,
+  height: PropTypes.number,
+  width: PropTypes.number,
+  status: PropTypes.string,
 };
-export default function ArrowDown({ height, width }) {
+export default function ArrowDown({ height, width, status }) {
   return (
     <svg
       width={`${width ? width : 20}px`}
@@ -16,7 +17,8 @@ export default function ArrowDown({ height, width }) {
     >
       <path
         d="M1.25 1L8 7.75L14.75 1"
-        stroke="black"
+        // stroke="black"
+        stroke={`${status === "inactive" ? "#d2d1d3" : "#49454F"}`}
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"

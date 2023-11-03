@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 
 Warning.propTypes = {
-  height: PropTypes.string,
-  width: PropTypes.string,
+  height: PropTypes.number,
+  width: PropTypes.number,
 };
 export default function Warning({ height, width }) {
   return (
