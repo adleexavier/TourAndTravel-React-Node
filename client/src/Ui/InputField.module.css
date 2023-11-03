@@ -6,7 +6,6 @@
   border: 1px solid gray;
   border-radius: 6px;
   position: relative;
-  /* width: 200px; */
   line-height: 6ex;
   display: flex;
 }

@@ -9,10 +9,12 @@ InputField.propTypes = {
   status: PropTypes.oneOf(["active", "inactive", "error", "success"]),
   type: PropTypes.oneOf(["search", "dropdown", "dropdownsearch", ""]),
 };
+
 export default function InputField({ setValue, status, type }) {
+  console.log(status);
   return (
     <div className={classes.inputwrapper}>
-      <label>First</label>
+      <label className={`${status}`}>First</label>
       <div className={`${classes.inputcontainer} ${classes[status]}`}>
         {(type === "search" || type === "dropdownsearch") && (
           <div className={classes.icon}>
@@ -40,7 +42,7 @@ export default function InputField({ setValue, status, type }) {
           </div>
         )}
       </div>
-      <text>Supporting text</text>
+      <span>Supporting text</span>
     </div>
   );
 }
