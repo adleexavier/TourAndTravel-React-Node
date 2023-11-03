@@ -4,6 +4,7 @@ import classes from "./InputField.module.css";
 import SearchIcon from "../assets/icons/SearchIcon";
 import ArrowDown from "../assets/icons/ArrowDown";
 import Warning from "../assets/icons/Warning";
+
 InputField.propTypes = {
   setValue: PropTypes.func,
   status: PropTypes.oneOf(["active", "inactive", "error", "success", ""]),
@@ -13,6 +14,7 @@ InputField.propTypes = {
   placeholder: PropTypes.string,
   width: PropTypes.string,
 };
+
 //set value if the function that has to be passsed as props for setting the value
 export default function InputField({
   setValue,
