@@ -7,18 +7,25 @@ pipeline {
             }
         }
         stage("Run Server"){
+
          steps {
-          dir("server")
-          sh("npm i")
-          sh("npm start")
+          sh "ls"
+          sh "pwd"
+          dir("TourAndTravel-React-Node/server") {
+          sh "npm i"
+          sh "npm start"
+
+          }
 
          }
         }
         stage("Run Client"){
          steps {
-          dir("client")
-          sh("npm i")
-          sh("npm run dev")
+          dir("TourAndTravel-React-Node/client") {
+          sh "npm i"
+          sh "npm run dev"
+
+          }
 
          }
         }
