@@ -7,14 +7,20 @@ pipeline {
             }
         }
         stage("Run Server"){
+         steps {
           dir("server")
           sh("npm i")
           sh("npm start")
+
+         }
         }
         stage("Run Client"){
+         steps {
           dir("client")
           sh("npm i")
           sh("npm run dev")
+
+         }
         }
     }
 }
