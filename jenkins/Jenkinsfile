@@ -1,0 +1,20 @@
+pipeline {
+    agents any
+    stages {
+        stage("Clear") {
+            steps{
+                deleteDir()
+            }
+        }
+        stage("Run Server"){
+          dir("server")
+          sh("npm i")
+          sh("npm start")
+        }
+        stage("Run Client"){
+          dir("client")
+          sh("npm i")
+          sh("npm run dev")
+        }
+    }
+}
